@@ -1,0 +1,7 @@
+3D_Reconstruction/__pycache__
+data/clouds
+data/disparity
+data/left_stereo
+data/right_stereo
+myenv
+venv
