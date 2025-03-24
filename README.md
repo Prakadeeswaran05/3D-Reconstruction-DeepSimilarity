@@ -81,7 +81,7 @@ Place the necessary files as shown above in data folder
 ```
 cd 3D_Reconstruction/
 
-python3 reconstruct_pointclouds.py --left /path/to/left_stereo --disp /path/to/disparity --out /path/to/clouds --cfg /path/to/stereo_config.txt --disp_thresh 1.5 --downsample 0 --voxel_size 100 --cam_id "LEFT_CAM_FHD" --viz 0
+ python3 reconstruct_pointclouds.py --left data/left_stereo --disp data/disparity --out data/clouds/ --cfg data/stereo_config.txt --disp_thresh 1.5 --downsample 1 --voxel_size 100 --cam_id "LEFT_CAM_FHD" --viz 0
 
 # Command-Line Arguments
 # Required:
@@ -113,7 +113,7 @@ Place the necessary files as shown above in data folder
 
 ```
 cd deep-similarity/
-python3 measure_similarity.py --pair both --data_path /path/to/data/
+python3 measure_similarity.py --pair both  --data_path data/
 
 
 # --data_path    : Root directory of the dataset.

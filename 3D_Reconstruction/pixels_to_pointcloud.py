@@ -124,7 +124,7 @@ class InverseProjection:
 
 if __name__ == "__main__":
     # Load camera parameters
-    inverse_proj = InverseProjection("/home/harish/noteworthy_project/data/stereo_config.txt","LEFT_CAM_FHD")
+    inverse_proj = InverseProjection("/home/noteworthy_project/data/stereo_config.txt","LEFT_CAM_FHD")
     
     colored_point_cloud = inverse_proj.reconstruct_colored_point_cloud(
         "/home/noteworthy_project/data/disparity/1694977813_711027992_disparity.npy",

@@ -24,6 +24,7 @@ def process_folders(left_image_folder: str,disparity_folder: str,output_folder: 
         downsample_size: Voxel size for downsampling
         camera_id: Camera ID in config file
     """
+    print(output_folder)
     os.makedirs(output_folder, exist_ok=True)
     inverse_proj = InverseProjection(camera_params_file,camera_id)
     left_image_files = sorted([f for f in os.listdir(left_image_folder) if f.endswith(('.jpeg', '.jpg', '.png'))])
@@ -80,10 +81,10 @@ def process_folders(left_image_folder: str,disparity_folder: str,output_folder: 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate point clouds from stereo images')
     # Required arguments
-    parser.add_argument('--left', required=True, help='Left images folder')
-    parser.add_argument('--disp', required=True, help='Disparity maps folder')
-    parser.add_argument('--out', required=True, help='Output folder for point clouds')
-    parser.add_argument('--cfg', required=True, help='Camera config file')
+    parser.add_argument('--left', type=str,required=True, help='Left images folder')
+    parser.add_argument('--disp', type=str,required=True, help='Disparity maps folder')
+    parser.add_argument('--out', type=str,required=True, help='Output folder for point clouds')
+    parser.add_argument('--cfg', type=str, required=True, help='Path to camera config file')
     parser.add_argument('--downsample', type=int, required=True,
                     choices=[0, 1], default=0,
                     help='Enable downsampling (1=true, 0=false)')
@@ -95,7 +96,16 @@ if __name__ == "__main__":
     parser.add_argument('--disp_thresh', type=float, default=1.0, help='Min disparity (default: 1.0)')
     parser.add_argument('--cam_id', default="LEFT_CAM_FHD", help='Camera ID (default: LEFT_CAM_FHD)')
     
-    args = parser.parse_args()   
+    args = parser.parse_args() 
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(current_dir)
+    print(project_root)
+
+   
+    for attr in ['left', 'disp', 'out', 'cfg']:
+        setattr(args, attr, os.path.join(project_root, getattr(args, attr)))
+
+    #print(args.left)
     
     process_folders(
         args.left, 

@@ -28,7 +28,10 @@ def main():
     model = DeepSimilarity().to(device)
 
     results = {}
-
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(current_dir)
+    args.data_path=os.path.join(project_root, args.data_path)
+    print(args.data_path)
     if args.pair in ['stereo', 'both']:
         stereo_dataset = ImageDataSet(data_path=args.data_path, pair='stereo',transform=model.transform)
         stereo_loader = DataLoader(stereo_dataset, batch_size=args.batch_size, shuffle=False)
