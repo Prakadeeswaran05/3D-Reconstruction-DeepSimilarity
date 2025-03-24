@@ -52,7 +52,7 @@ class ImageDataSet(Dataset):
         return self.transform(img)
 
 def main():
-    data_path = "/home/harish/noteworthy_project/data"
+    data_path = "/home/noteworthy_project/data"
     pair = "stereo"  # Use 'stereo' or 'adjacent'
     
     dataset = ImageDataSet(data_path=data_path, pair=pair)
