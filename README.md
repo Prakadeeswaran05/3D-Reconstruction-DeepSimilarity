@@ -36,8 +36,8 @@ project/
 pip install virtualenv
 virtualenv myenv
 source myenv/bin/activate
-git clone https://github.com/Prakadeeswaran05/3d_Segmentation_For_Navigation.git
-cd 
+git clone https://github.com/Prakadeeswaran05/3D-Reconstruction-DeepSimilarity.git
+cd 3D-Reconstruction-DeepSimilarity
 pip install -r requirements.txt
 
 ```
