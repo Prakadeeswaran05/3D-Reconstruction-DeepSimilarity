@@ -127,8 +127,8 @@ if __name__ == "__main__":
     inverse_proj = InverseProjection("/home/harish/noteworthy_project/data/stereo_config.txt","LEFT_CAM_FHD")
     
     colored_point_cloud = inverse_proj.reconstruct_colored_point_cloud(
-        "/home/harish/noteworthy_project/data/disparity/1694977813_711027992_disparity.npy",
-        "/home/harish/noteworthy_project/data/left_stereo/left_1694977813_711027992.jpeg",
+        "/home/noteworthy_project/data/disparity/1694977813_711027992_disparity.npy",
+        "/home/noteworthy_project/data/left_stereo/left_1694977813_711027992.jpeg",
         2.0,  # disp_thresh
         False,  # downsample
         200   # downsample_size
